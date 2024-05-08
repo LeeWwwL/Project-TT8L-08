@@ -8,5 +8,3 @@ urlpatterns = [
 	path('checkout/', views.checkout, name="checkout"),
 
 ]
-12312312312
-123123
