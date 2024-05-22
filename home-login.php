@@ -10,7 +10,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p>Logo</p>
+            <p><a href="home-login.php">Logo</a></p>
         </div>
 
         <div class="right-links">
