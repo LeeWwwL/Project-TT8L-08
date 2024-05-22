@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="field input">
-                    <label for="age ">Age</label>
-                    <input type="number" name="age" id="age" autocomplete="off" required>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" autocomplete="off" required>
                 </div>
 
                 <div class="field">

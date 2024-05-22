@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style/style-login.css">
     <title>Home</title>
 </head>
+
 <body>
     <div class="nav">
         <div class="logo">
@@ -25,15 +27,17 @@
                     <p>Hello <b>Ludiflex</b>, Welcome</p>
                 </div>
                 <div class="box">
-                    <p>Your email is  <b>123@gmail.com</b>, Welcome</p>
+                    <p>Your email is <b>123@gmail.com</b>, Welcome</p>
                 </div>
             </div>
             <div class="bottom">
-                <div class="box"><p>And ou are <b>20 years old</b>.</p>
+                <div class="box">
+                    <p>And you are <b>20 years old</b>.</p>
                 </div>
             </div>
         </div>
     </main>
-    
+
 </body>
+
 </html>
