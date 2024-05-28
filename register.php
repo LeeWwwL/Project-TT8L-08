@@ -69,11 +69,11 @@
                                 
                 <div class="field input">
                     <label for="password">Password</label>
-                    <input type="password" name="password" autocomplete="off" id="password" required>
+                    <input type="password" name="password"  id="password" autocomplete="off" required>
                 </div>
 
                 <div class="field">
-                    <input type="submit" class="btn" name="submit" value="Login" required>
+                    <input type="submit" class="btn" name="submit" value="Register" required>
                 </div>
                 <div class="links">
                     Already have account? <a href="index-login.php">Sign In</a>
