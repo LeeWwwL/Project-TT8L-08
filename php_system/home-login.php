@@ -27,7 +27,7 @@ if (!isset($_SESSION['valid'])) {
             <?php
 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT*FROM users WHERE Id=$id");
+            $query = mysqli_query($conn, "SELECT*FROM users WHERE Id=$id");
 
             while ($result = mysqli_fetch_assoc($query)) {
                 $res_Uname = $result['Username'];

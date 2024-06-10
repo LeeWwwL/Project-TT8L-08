@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style-login.css">
     <title>Register</title>
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -22,7 +34,7 @@
 
             //verifying the unique email
         
-            $verify_query = mysqli_query($con, "SELECT Email FROM users WHERE Email='$email'");
+            $verify_query = mysqli_query($conn, "SELECT Email FROM users WHERE Email='$email'");
 
             if (mysqli_num_rows($verify_query) != 0) {
                 echo "<div class='message'>
@@ -31,7 +43,7 @@
                 echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
             } else {
 
-                mysqli_query($con, "INSERT INTO users(Username,Email,Address,Password) VALUES('$username','$email','$address','$password')") or die("Erroe Occured");
+                mysqli_query($conn, "INSERT INTO users(Username,Email,Address,Password) VALUES('$username','$email','$address','$password')") or die("Erroe Occured");
 
                 echo "<div class='message'>
                       <p>Registration successfully!</p>
@@ -43,15 +55,8 @@
 
         }else{
         ?>
-
-
-
-
-
-
-
             <header>Sign Up</header>
-            <form action=""method="post">
+            <form action=""method="post" onsubmit="return validateForm()">
                 <div class="field input">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" autocomplete="off" required>
