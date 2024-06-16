@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../admin/admin_generate_invite.php');
             exit;
         } elseif ($row['role'] == 'seller') {
-            header('Location: ../upload.html');
+            header('Location: ../upload_product.php');
             exit;
         } else {
             header('Location: home-login.php');

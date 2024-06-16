@@ -1274,3 +1274,19 @@ main .card button:hover::before{
 main .card button:hover::after{
     width: 30%;
 }
+
+.product-image {
+    width: 100px;
+    height: auto; 
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

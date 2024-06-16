@@ -26,7 +26,7 @@ if (!isset($_SESSION['valid'])) {
         <div class="right-links">
             <?php
 
-            $id = $_SESSION['id'];
+            $id = $_SESSION['Id'];
             $query = mysqli_query($conn, "SELECT*FROM users WHERE Id=$id");
 
             while ($result = mysqli_fetch_assoc($query)) {
@@ -54,7 +54,7 @@ if (!isset($_SESSION['valid'])) {
                 </div>
                 <div class="bottom">
                     <div class="box">
-                        <p>And you are address is </address><b><?php echo $res_Address ?></b>.</p>
+                        <p>And your address is </address><b><?php echo $res_Address ?></b>.</p>
                     </div>
                     <div class="main-box bottom">
                         <div class="box">
