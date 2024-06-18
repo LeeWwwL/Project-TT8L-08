@@ -1,11 +1,39 @@
 <?php
 session_start();
 
-include ("php/config.php");
+include("php/config.php");
+
+// 检查用户是否登录，如果未登录则重定向到登录页面
 if (!isset($_SESSION['valid'])) {
     header("Location: index-login.php");
+    exit;
+}
+
+// 从 session 中获取用户 ID
+$id = $_SESSION['Id'];
+
+// 准备查询语句并执行查询
+$query = "SELECT * FROM users WHERE id='$id'";
+$result = mysqli_query($conn, $query);
+
+// 检查查询是否成功
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+// 检查是否有结果行
+if (mysqli_num_rows($result) > 0) {
+    // 提取结果行数据
+    $row = mysqli_fetch_assoc($result);
+    $res_Uname = $row['username'];
+    $res_Email = $row['email'];
+    $res_Address = $row['address'];
+    $res_id = $row['id'];
+} else {
+    die("User not found.");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,46 +52,33 @@ if (!isset($_SESSION['valid'])) {
         </div>
 
         <div class="right-links">
-            <?php
-
-            $id = $_SESSION['Id'];
-            $query = mysqli_query($conn, "SELECT*FROM users WHERE Id=$id");
-
-            while ($result = mysqli_fetch_assoc($query)) {
-                $res_Uname = $result['Username'];
-                $res_Email = $result['Email'];
-                $res_Address = $result['Address'];
-                $res_id = $result['Id'];
-            }
-
-            echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
-            ?>
-
-            <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
-
+            <a href="edit.php?Id=<?php echo $res_id ?>">Change Profile</a>
+            <a href="php/logout.php"><button class="btn">Log Out</button></a>
         </div>
-        <main>
-            <div class="main-box top">
-                <div class="top">
-                    <div class="box">
-                        <p>Hello <b><?php echo $res_Uname ?></b>, Welcome</p>
-                    </div>
-                    <div class="box">
-                        <p>Your email is <b><?php echo $res_Email ?></b>, Welcome</p>
-                    </div>
+    </div>
+
+    <main>
+        <div class="main-box top">
+            <div class="top">
+                <div class="box">
+                    <p>Hello <b><?php echo $res_Uname ?></b>, Welcome</p>
                 </div>
-                <div class="bottom">
+                <div class="box">
+                    <p>Your email is <b><?php echo $res_Email ?></b>, Welcome</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="box">
+                    <p>And your address is <b><?php echo $res_Address ?></b>.</p>
+                </div>
+                <div class="main-box bottom">
                     <div class="box">
-                        <p>And your address is </address><b><?php echo $res_Address ?></b>.</p>
-                    </div>
-                    <div class="main-box bottom">
-                        <div class="box">
-                            <a href="../index.html"><button class="btn">Continue</button></a>
-                        </div>
+                        <a href="../index.html"><button class="btn">Continue</button></a>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
 </body>
 

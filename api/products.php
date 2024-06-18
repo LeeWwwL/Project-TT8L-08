@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$conn = mysqli_connect("localhost","root","","Project-TT8L-08") or die("Couldn't connect");
+include("../php_system/php/config.php");
 
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
