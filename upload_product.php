@@ -66,7 +66,11 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="style.css">
     <title>Upload Product</title>
 </head>
+
 <body>
+<div class="right-links">
+            <a href="php_system/php/logout.php"><button class="btn">Log Out</button></a>
+        </div>
     <h2>Upload Product</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
         <label for="name">Product Name:</label>

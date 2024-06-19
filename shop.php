@@ -5,6 +5,8 @@ require_once 'php_system/php/config.php';
 $sql = "SELECT * FROM products";
 $all_product = $conn->query($sql);
 
+session_start();
+$logged_in = isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == true;
 
 ?>
 
@@ -27,11 +29,18 @@ $all_product = $conn->query($sql);
 
         <nav>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a class=active href="shop.php">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li id="login-logout">
+                    <?php if ($logged_in): ?>
+                        <a href="php_system/php/logout.php">Logout</a>
+                    <?php else: ?>
+                        <a href="php_system/index-login.php">Login</a>
+                    <?php endif; ?>
+                </li>
                 <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>

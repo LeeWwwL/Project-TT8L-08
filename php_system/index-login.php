@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
+    
 
     if ($row) {
         $_SESSION['Id'] = $row['id'];
@@ -17,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['address'] = $row['address'];
         $_SESSION['role'] = $row['role'];
         $_SESSION['valid'] = true;
+        $_SESSION['user_logged_in'] = true;
+       
 
         if ($row['role'] == 'admin') {
             header('Location: ../admin/admin_generate_invite.php');
