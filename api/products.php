@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../php_system/php/config.php");
 
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM product_first";
 $result = $conn->query($sql);
 
 $products = array();

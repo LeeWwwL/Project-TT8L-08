@@ -6,11 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // 这里假设你在数据库中存储的是明文密码，这样不安全。最好使用哈希函数（如 password_hash 和 password_verify）
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
-    
 
     if ($row) {
         $_SESSION['Id'] = $row['id'];
@@ -18,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['address'] = $row['address'];
         $_SESSION['role'] = $row['role'];
         $_SESSION['valid'] = true;
-        $_SESSION['user_logged_in'] = true;
-       
+       $_SESSION['user_logged_in'] = true;
+
 
         if ($row['role'] == 'admin') {
             header('Location: ../admin/admin_generate_invite.php');

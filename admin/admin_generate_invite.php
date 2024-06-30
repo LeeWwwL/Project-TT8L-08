@@ -63,7 +63,7 @@ $result = $conn->query("SELECT * FROM invitations WHERE used = 0");
     </script>
 </head>
 <body>
-<div class="right-links">
+    <div class="right-links">
             <a href="../php_system/php/logout.php"><button class="btn">Log Out</button></a>
         </div>
     <h1>Generate invitation code page</h1>
